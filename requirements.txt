@@ -1,0 +1,10 @@
+# Standard 64-bit CPython 3.11-3.14; Python 3.12 is the reference environment.
+# Use prebuilt wheels instead of requiring local C/C++ compilation.
+--only-binary=:all:
+
+numpy>=2.3.5,<2.4
+pandas>=2.3.3,<3.0
+scipy>=1.17.0,<1.18
+matplotlib>=3.10.8,<3.11
+scikit-learn>=1.8.0,<1.9
+ipykernel>=7.0,<8.0
