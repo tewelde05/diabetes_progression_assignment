@@ -1,0 +1,9 @@
+Model,Predicted score
+Polynomial degree 2 (Ridge),142.38076266998559
+Polynomial degree 3 (Ridge),129.93982678004235
+Tree depth 3,111.56842105263158
+Tree depth 5,99.273972602739732
+kNN k=15,117.26666666666667
+kNN k=5,131
+Logistic C=0.1 (score adapter),161.97536101640088
+Logistic C=1 (score adapter),165.61093880161522

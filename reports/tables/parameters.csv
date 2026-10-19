@@ -1,0 +1,15 @@
+Model,Response coefficients / values,Split thresholds,Training records retained,Interpretation
+BMI degree 0,1,0,0,"One coefficient per polynomial term, including exactly one intercept."
+BMI degree 1,2,0,0,"One coefficient per polynomial term, including exactly one intercept."
+BMI degree 2,3,0,0,"One coefficient per polynomial term, including exactly one intercept."
+BMI degree 3,4,0,0,"One coefficient per polynomial term, including exactly one intercept."
+BMI degree 4,5,0,0,"One coefficient per polynomial term, including exactly one intercept."
+BMI degree 5,6,0,0,"One coefficient per polynomial term, including exactly one intercept."
+Polynomial degree 2 (Ridge),66,0,0,"One coefficient per polynomial term, including exactly one intercept."
+Polynomial degree 3 (Ridge),286,0,0,"One coefficient per polynomial term, including exactly one intercept."
+Tree depth 3,8,7,0,One mean per leaf; one threshold and a discrete feature choice per internal node.
+Tree depth 5,27,26,0,One mean per leaf; one threshold and a discrete feature choice per internal node.
+kNN k=15,0,0,331,No fitted slope/intercept coefficients; stores training features and responses.
+kNN k=5,0,0,331,No fitted slope/intercept coefficients; stores training features and responses.
+Logistic C=0.1 (score adapter),11,0,0,11 classifier coefficients; plus 2 decoding means and the training-median threshold.
+Logistic C=1 (score adapter),11,0,0,11 classifier coefficients; plus 2 decoding means and the training-median threshold.

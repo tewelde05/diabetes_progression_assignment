@@ -1,0 +1,18 @@
+{
+  "seed": 42,
+  "split_counts": [
+    331,
+    44,
+    67
+  ],
+  "selection_rule": "Minimum validation MAE; exact ties follow declared candidate order.",
+  "bmi_winner": "BMI degree 5",
+  "multivariate_winner": "Polynomial degree 2 (Ridge)",
+  "family_winners": [
+    "Polynomial degree 2 (Ridge)",
+    "Tree depth 3",
+    "kNN k=5",
+    "Logistic C=1 (score adapter)"
+  ],
+  "logistic_adaptation": "Training-median binary labels with training-class-mean probability decoding."
+}
