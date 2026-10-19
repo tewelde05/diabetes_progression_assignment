@@ -12,19 +12,19 @@ The main report is [notebooks/Diabetes_Progression_Report.ipynb](notebooks/Diabe
 
 ## Project organization
 
-| Location | Responsibility |
-|---|---|
-| `notebooks/Diabetes_Progression_Report.ipynb` | Submission report and analysis orchestration |
-| `src/data.py` | Dataset loading, quality checks, and patient splitting |
-| `src/models.py` | Predeclared pipelines and explicit logistic score adapter |
-| `src/evaluation.py` | Metrics, validation selection, coefficients, and diagnostics |
-| `src/experiment.py` | Reproducible experiment and result exports |
-| `src/plots.py` | Labelled EDA, fitted-curve, and residual figures |
-| `src/notebook_runner.py` | Batch execution of explicit report code cells |
-| `tests/test_workflow.py` | Numerical, split-integrity, and leakage checks |
-| `reports/tables/` | Full-precision metrics, coefficients, scaling, split indices, and errors |
-| `reports/figures/` | Six report figures |
-| `requirements.txt` | Pinned numerical and notebook-kernel dependencies |
+| Location                                      | Responsibility                                                           |
+| --------------------------------------------- | ------------------------------------------------------------------------ |
+| `notebooks/Diabetes_Progression_Report.ipynb` | Submission report and analysis orchestration                             |
+| `src/data.py`                                 | Dataset loading, quality checks, and patient splitting                   |
+| `src/models.py`                               | Predeclared pipelines and explicit logistic score adapter                |
+| `src/evaluation.py`                           | Metrics, validation selection, coefficients, and diagnostics             |
+| `src/experiment.py`                           | Reproducible experiment and result exports                               |
+| `src/plots.py`                                | Labelled EDA, fitted-curve, and residual figures                         |
+| `src/notebook_runner.py`                      | Batch execution of explicit report code cells                            |
+| `tests/test_workflow.py`                      | Numerical, split-integrity, and leakage checks                           |
+| `reports/tables/`                             | Full-precision metrics, coefficients, scaling, split indices, and errors |
+| `reports/figures/`                            | Six report figures                                                       |
+| `requirements.txt`                            | Pinned numerical and notebook-kernel dependencies                        |
 
 ## Environment and reproduction
 
@@ -59,13 +59,13 @@ The batch report executor runs explicit Python code cells in one shared namespac
 - Selection minimizes **unrounded validation MAE**. Exact ties follow the declared candidate order. R² and MAPE are also reported for every candidate on training and validation.
 - Model settings are declared before scoring. Selected models remain fitted on training data alone. Test results do not change the choices.
 
-| Part | Models |
-|---|---|
-| 2 | Six BMI-only ordinary-least-squares polynomials, degrees 0–5 |
-| 3 | Multivariate degree-2 and degree-3 Ridge polynomials, fixed α = 1 |
-| 3 | Decision-tree regressors, maximum depths 3 and 5, minimum leaf size 5 |
-| 3 | Standardized kNN regressors, k = 15 and k = 5, uniform weights |
-| 3 | Standardized logistic classifiers, C = 0.1 and C = 1, with the explicit adaptation below |
+| Part | Models                                                                                   |
+| ---- | ---------------------------------------------------------------------------------------- |
+| 2    | Six BMI-only ordinary-least-squares polynomials, degrees 0–5                             |
+| 3    | Multivariate degree-2 and degree-3 Ridge polynomials, fixed α = 1                        |
+| 3    | Decision-tree regressors, maximum depths 3 and 5, minimum leaf size 5                    |
+| 3    | Standardized kNN regressors, k = 15 and k = 5, uniform weights                           |
+| 3    | Standardized logistic classifiers, C = 0.1 and C = 1, with the explicit adaptation below |
 
 Ridge regularization is used for the multivariate polynomial models because correlated predictors and powers of the binary sex code produce related or redundant expanded terms. Degree 0 has one fitted constant equal to the training target mean. Each degree-d univariate model has d + 1 regression coefficients, including exactly one intercept.
 
@@ -83,13 +83,13 @@ The threshold and both class means use training outcomes only. Classification an
 
 The BMI-only degree-5 model and the multivariate degree-2 Ridge model are selected by validation MAE. Each multivariate family also contributes its own validation-selected model to the test comparison.
 
-| Validation-selected model | Test R² | Test MAE | Test MAPE |
-|---|---:|---:|---:|
-| BMI degree 5 | 0.267 | 51.75 | 43.03% |
-| Degree-2 multivariate Ridge | 0.433 | 43.67 | 36.56% |
-| Tree depth 3 | 0.449 | 45.80 | 39.73% |
-| kNN k = 5 | 0.471 | 42.21 | 34.65% |
-| Logistic C = 1 with score decoder | 0.445 | 46.00 | 41.08% |
+| Validation-selected model         | Test R² | Test MAE | Test MAPE |
+| --------------------------------- | ------: | -------: | --------: |
+| BMI degree 5                      |   0.267 |    51.75 |    43.03% |
+| Degree-2 multivariate Ridge       |   0.433 |    43.67 |    36.56% |
+| Tree depth 3                      |   0.449 |    45.80 |    39.73% |
+| kNN k = 5                         |   0.471 |    42.21 |    34.65% |
+| Logistic C = 1 with score decoder |   0.445 |    46.00 |    41.08% |
 
 The observed kNN test advantage does not replace the model selected on validation data. The multivariate cubic and deeper tree fit training data more closely but generalize less well on validation. The selected multivariate polynomial reduces average error relative to BMI alone, yet its largest test error is approximately 166.63 score units. The report examines underprediction of high outcomes, overprediction of low outcomes, extrapolation, and decoder limitations. These educational results do not establish clinical screening performance.
 
