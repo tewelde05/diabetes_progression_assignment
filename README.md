@@ -102,3 +102,7 @@ The report's **24 Python code cells** execute successfully and generate **six fi
 - [Diabetes dataset description](https://scikit-learn.org/stable/datasets/toy_dataset.html#diabetes-dataset) and [loader API](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html).
 - [Model-evaluation metrics](https://scikit-learn.org/stable/modules/model_evaluation.html), [PolynomialFeatures](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html), [Ridge](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html), and [LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html).
 - Course materials: Performance Metrics for Classification; K-Nearest Neighbors Workshop; Logistic Regression & Log-Loss — Pass/Fail Workshop. Specific connections and source filenames appear in the report bibliography.
+
+## AI Assistance
+
+- ChatGPT by OpenAI was used to assist.
